@@ -11,7 +11,7 @@ def oneselection(request):
     a = other.choose
     all = ['캘리그라피','뜨개질','스티커 아트', '미니 레고', '생활 보드','실 팔찌 만들기','배드민턴']
     all.remove(a)
-    print(a)
+    
     return render(request, 'one_selection.html',{'all':all})
 
 def twoselection(request):
