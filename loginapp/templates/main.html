@@ -1,0 +1,166 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!--csslink-->
+    <link rel="stylesheet" href="{% static 'maindesign.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <style>
+        .search{
+            height: 40px;
+            width: 400px;
+            border: 1px solid #eb65c1;
+            background:none;
+        }
+        
+        input {
+            background: none;
+            color: #eb65c1;
+            font-size: 16px;
+            width: 300px;
+            padding: 10px;
+            border: 0px;
+            outline: none;
+            float: left;
+        }
+        button{
+            width: 50px;
+            height: 100%;
+            border: 0px;
+            background: #eb65c1;
+            outline: none;
+            float: right;
+            color:#ffffff;
+        }
+        .push1{
+            margin-top: 400px;
+            margin-left: 900px;
+            display: table;
+        }
+        .push2{
+            display: table-cell;
+            vertical-align: middle; 
+        }
+    </style>
+
+</head>
+
+<body>
+    {% if mem %}
+        <div class='menu'>
+                <ul>
+                    <li>
+                        <a href="{% url 'main'%}">첫만남</a>
+                    </li>
+                    <li class='active sub'>
+                        <a href='#'>구독하기</a>
+                        <ul>
+                            <li class='sub'>
+                                <a href="{% url 'index'%}">넓은여행</a>
+                            </li>
+                            <li class='sub'>
+                                <a href="{% url 'heavyfirst'%}">깊은여행</a>
+                            </li>
+                        </ul>
+                    </li>
+                        <li class='active sub'>
+                                <a href='#'>게시판</a>
+                                <ul>
+                                    <li class='sub'>
+                                        <a href='#'>공지사항</a>
+                                    </li>
+                                    <li class='sub'>
+                                        <a href='#'>Q & A</a>
+                                    </li>
+                                </ul>
+                            </li>
+                    <li class='active sub'>
+                        <a href='#'>{{ mem.title }}님</a>
+                        <ul>
+                            <li class='sub'>
+                                <a href="{% url 'main'%}">로그아웃</a>
+                            </li>
+                            <li class='sub'>
+                                <a href="{% url 'mypage'%}">개인기록</a>
+                            </li>
+                        </ul>
+                    </li>
+                   
+                </ul>
+            </div>
+<!--로그인 한 경우에 상단바-->
+<!--로그인 안했을 때 상단바-->
+    {% else %}
+        <div class='menu'>
+        <ul>
+            <li>
+                <a href="{% url 'main'%}">첫만남</a>
+            </li>
+            <li class='active sub'>
+                    <a href='#'>구독하기</a>
+                    <ul>
+                        <li class='sub'>
+                            <a href="{% url 'index'%}">넓은여행</a>
+                        </li>
+                        <li class='sub'>
+                            <a href="{% url 'heavyfirst'%}">깊은여행</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class='active sub'>
+                        <a href='#'>게시판</a>
+                        <ul>
+                            <li class='sub'>
+                                <a href='#'>공지사항</a>
+                            </li>
+                            <li class='sub'>
+                                <a href='#'>Q & A</a>
+                            </li>
+                        </ul>
+                    </li>
+            <li class='active sub'>
+                <a href='#'>여행자님</a>
+                <ul>
+                    <li class='sub'>
+                        <a href="{% url 'about'%}">알아보기</a>
+                    </li>
+                    <li class='sub'>
+                        <a href="{% url 'login'%}">로그인</a>
+                    </li>
+                    <li class='sub'>
+                        <a href="{% url 'signup' %}">회원가입</a>
+                    </li>
+                </ul>
+            </li>
+        
+            </ul>
+        </div>
+    {% endif %}
+<!--로그인 안했을 때 상단바-->
+
+<div style="width: 50px;">
+    <p>.</p>
+</div>
+
+<img src="{% static 'logo.gif'%}" style="width: 50px; float:left; display:inline;">
+
+<div class="search" style="float: left;">
+    <input type="text" placeholder="무엇을 도와드릴까요?">
+    <button>찾기</button>
+</div>
+
+<div class="push1">
+        <div class="push2">
+            <a href="{% url 'index'%}"  style="width: 400px; height:auto;" ><img src="{% static 'button1.png'%}" class="btn"> </a>
+            <a href="{% url 'heavyfirst'%}"  style="width: 400px; height:auto;"><img src="{% static 'button2.png'%}" class="btn"></a><br>
+
+    </div>    
+</div>
+
+</body>
+</html>

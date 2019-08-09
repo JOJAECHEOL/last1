@@ -1,0 +1,8 @@
+{% for items in items.all %}
+        <div class="container">
+            <h1>{{ items.goodsname }}</h1>
+            <p>{{ items.item }}</p>
+            <p>{{ items.price }}</p>
+            <p>{{ items.date }}</p>
+        </div>
+{% endfor %} 

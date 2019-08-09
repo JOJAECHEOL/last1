@@ -1,0 +1,326 @@
+{% load staticfiles %}
+
+    
+     
+<h2 class="container">
+  <!-- <img src="{%static 'background.png'%}" height=500 alt=""> -->
+  <head>
+        <link rel="stylesheet" type="text/css" href="design.css"> 
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
+      <link rel="stylesheet" href="{% static 'css/design.css' %}">
+  
+    </head>
+    
+  <body>
+        
+ <!-- 네비바 -->
+ <span><img src="{% static 'img/logo.gif'%}" style="width: 50px; text-align: left;"></span>
+ 
+
+ <body>
+  {% if mem %}
+      <div class='menu'>
+              <ul>
+                  <li>
+                      <a href="{% url 'main'%}">첫만남</a>
+                  </li>
+                  <li class='active sub'>
+                      <a href='#'>구독하기</a>
+                      <ul>
+                          <li class='sub'>
+                              <a href="{% url 'index'%}">넓은여행</a>
+                          </li>
+                          <li class='sub'>
+                              <a href="{% url 'heavyfirst'%}">깊은여행</a>
+                          </li>
+                      </ul>
+                  </li>
+                      <li class='active sub'>
+                              <a href='#'>게시판</a>
+                              <ul>
+                                  <li class='sub'>
+                                      <a href='#'>공지사항</a>
+                                  </li>
+                                  <li class='sub'>
+                                      <a href='#'>Q & A</a>
+                                  </li>
+                              </ul>
+                          </li>
+                  <li class='active sub'>
+                      <a href='#'>{{ mem.title }}님</a>
+                      <ul>
+                          <li class='sub'>
+                              <a href="{% url 'main'%}">로그아웃</a>
+                          </li>
+                          <li class='sub'>
+                              <a href="{% url 'mypage'%}">개인기록</a>
+                          </li>
+                      </ul>
+                  </li>
+                 
+              </ul>
+          </div>
+<!--로그인 한 경우에 상단바-->
+<!--로그인 안했을 때 상단바-->
+  {% else %}
+      <div class='menu'>
+      <ul>
+          <li>
+              <a href="{% url 'main'%}">첫만남</a>
+          </li>
+          <li class='active sub'>
+                  <a href='#'>구독하기</a>
+                  <ul>
+                      <li class='sub'>
+                          <a href="{% url 'index'%}">넓은여행</a>
+                      </li>
+                      <li class='sub'>
+                          <a href="{% url 'heavyfirst'%}">깊은여행</a>
+                      </li>
+                  </ul>
+              </li>
+              <li class='active sub'>
+                      <a href='#'>게시판</a>
+                      <ul>
+                          <li class='sub'>
+                              <a href='#'>공지사항</a>
+                          </li>
+                          <li class='sub'>
+                              <a href='#'>Q & A</a>
+                          </li>
+                      </ul>
+                  </li>
+          <li class='active sub'>
+              <a href='#'>여행자님</a>
+              <ul>
+                  <li class='sub'>
+                      <a href="{% url 'about'%}">알아보기</a>
+                  </li>
+                  <li class='sub'>
+                      <a href="{% url 'login'%}">로그인</a>
+                  </li>
+                  <li class='sub'>
+                      <a href="{% url 'signup' %}">회원가입</a>
+                  </li>
+              </ul>
+          </li>
+      
+          </ul>
+      </div>
+  {% endif %}
+
+<!--소개 글-->
+              <!--코드 정리좀 하면서 하자 inline때문에 안그래도 코드 지저분한 상태임 그럼 에러 잘뜸 죄송해요...-->
+              <!-- <div class="jumbotron jumbotron-fluid" style="background-image: url('{{ '/static/' }} /img/background.png')"  > -->
+                <!-- <div class="container forbackground" style="height:60%; width:100%; " >
+                   <div class="classname">
+                     
+                      <div class="card-position2">
+                          <h1 class="display-4" style="font-family: yg-jalnan; color:white; margin-left:10%; margin-top:10%;" >가죽공예</h1>
+                            <p class="lead" style="font-family: 'S-CoreDream-2ExtraLight'; color:white; margin-top:5%;">
+                              가죽 공예 어렵게 느껴 지시나요? 
+                              <br><br>직접 만들어 보면서<br> <br>나 자신과 소중한 사람에게 선물해 보세요!<br><br> 새로운 추억과 취미가 쌓여갑니다
+                              <br><br> 오늘의 최신 업데이트와 <br><br> 인기순위를 확인해 보세요!
+                            </p>
+                      </div>    
+                   </div>
+                </div> -->
+
+              <img src="{%static 'img/14.png'%}" style="width:139%; margin-left:-20%;">
+
+   
+    <br><br><br><br>
+
+<!-- 오늘의 추천 -->
+<div class="cen" style =" margin-left:0%;"> <h3 style="font-family: yg-jalnan; color:#eb65c1;"> 오늘의 추천</h3></div>
+<div class="cen" style =" margin-left:0%;"><h3 style="font-family: yg-jalnan; color:#232c46;"  >Today's best</h3></div>
+   <br><br>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width:90rem;">
+   
+      <!--첫번째 칸-->
+      <div class="carousel-inner">
+     
+        <div class="carousel-item active" data-interval="1000">
+        <h3 style="font-family: yg-jalnan;">  </h3>
+        <div class="contain"><div class="container">
+            <div class="card" style="width: 18rem; float:left; " >
+                  <img src="{%static 'img/가죽 지갑.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body" style="font-family: 'S-CoreDream-2ExtraLight';">
+                  <p class="card-text"><h5>나만의 지갑을 만들고싶나요? 가죽지갑을 직접 만들어 보면서 나만의 지갑과 추억을 가져보세요!</h5></p>
+                  <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  
+                  </div></div>
+                
+               
+                
+                <div class="card-position"> <div class="card" style="width: 18rem; float:left;  ">
+                  <img src="{%static 'img/가죽 파우치 만들기.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body" style="font-family: 'S-CoreDream-2ExtraLight';">
+                   <p class="card-text"><h5>나만의 파우치를 만들고싶나요? 파우치를 직접 만들어 보면서 나만의 파우치와 추억을 가져보세요!</h5></p>
+                    <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  </div></div>
+                </div>
+              
+                <div class="card-position2"><div class="card" style="width: 18rem; ">
+                  <img src="{%static 'img/가죽 스트랩 만들기.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body" style="font-family: 'S-CoreDream-2ExtraLight';">
+                  <p class="card-text"><h5>나만의 스트랩을 만들고싶나요? 스트랩을 직접 만들어 보면서 나만의 스트랩과 추억을 가져보세요!</h5></p>
+                  <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  </div></div></div>
+
+            
+              </div>
+              </div>
+              </div>
+
+
+
+        <!--두번째 칸-->
+        <div class="carousel-item" data-interval="1000">
+        <div style="font-family: 'S-CoreDream-2ExtraLight';">
+        <div class="contain"><div class="container">
+
+            <div class="card" style="width: 18rem; float:left;" >
+                  <img src="{%static 'img/가죽 디자인.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body">
+                    
+                    <p class="card-text"><h5>가죽을 직접 디자인 하고싶나요? 직접 디자인 해보면서 취미와 추억을 가져보세요!<br><br></h5></p>
+                   <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  </div></div>
+                
+               
+                
+                <div class="card-position"> <div class="card" style="width: 18rem; float:left; ">
+                  <img src="{%static 'img/가죽 키링 만들기.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body">
+                   
+                    <p class="card-text"><h5>나만의 키링을 만들고싶나요? 키링을 직접 만들어 보면서 나만의 키링과 추억을 가져보세요!</h5></p>
+                    <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  </div></div>
+                </div>
+              
+                <div class="card-position2"><div class="card" style="width: 18rem; ">
+                  <img src="{%static 'img/가죽 가방 만들기.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body">
+                    
+                    <p class="card-text"><h5>나만의 가방을 만들고싶나요? 가방을 직접 만들어 보면서 나만의 가방과 추억을 가져보세요!</h5></p>
+                    <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  </div></div>
+                </div>
+            
+       </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        <!--세번째 칸-->
+        <div class="carousel-item " data-interval="1000">
+            <div style="font-family: 'S-CoreDream-2ExtraLight';">
+            <div class="contain"><div class="container">
+
+            <div class="card" style="width: 18rem; float:left;" >
+                  <img src="{%static 'img/가죽 수선.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body">
+                    
+                    <p class="card-text"><h5>직접 수선을 해보고 싶나요? 그렇다면 자세히 버튼을 눌러주세요!</h5></p>
+                   <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  </div></div>
+                
+               
+                
+                <div class="card-position"> <div class="card" style="width: 18rem; float:left;">
+                  <img src="{%static 'img/가죽공예.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body">
+                    
+                    <p class="card-text"><h5>단순 취미과정이상으로 전문가 과정을 원하신다면 자세히 버튼을 눌러주세요!</h5></p>
+                    <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  </div></div>
+                </div>
+              
+                <div class="card-position2"><div class="card" style="width: 18rem; ">
+                  <img src="{%static 'img/가죽 소품.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body">
+                    
+                    <p class="card-text"><h5>Some quick example text to build on the card title and make </h5></p>
+                   <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  </div>
+                </div></div>
+
+        </div></div>
+        </div></div>
+      
+
+
+     <div class="ubar">
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" >
+        <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+        <span class="sr-only" >Previous</span>
+      </a></div>
+
+      <div class="uubar">
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" >
+        <span class="carousel-control-next-icon" aria-hidden="true" ></span>
+        <span class="sr-only">Next</span>
+      </a></div>
+      
+      </div>
+    
+    <br><br>
+
+
+
+
+
+
+<!--card position-->
+
+
+          <br><br><br>
+
+
+
+     <!-- 실시간 인기 --> <!-- 왜 적요이 안됨???????????????-->
+
+      <!--첫번째 칸-->
+      
+            <div class="cen" style =" margin-left:0%;"><h3 style="font-family: yg-jalnan;"> 최신 업데이트 </h3></div>
+
+            <div class="contain"><div class="container">
+              <div class="card" style="width: 18rem; float:left; " >
+                <img src="{%static 'img/가죽 지갑.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                <div class="card-body" style="font-family: 'S-CoreDream-2ExtraLight';">
+                <p class="card-text"><h5>나만의 지갑을 만들고싶나요? 가죽지갑을 직접 만들어 보면서 나만의 지갑과 추억을 가져보세요!</h5></p>
+                <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                
+                </div></div>
+                  
+                 
+                  
+                <div class="card-position"> <div class="card" style="width: 18rem; float:left;  ">
+                  <img src="{%static 'img/가죽 파우치 만들기.png'%}" class="card-img" alt="..." style="height: 20rem;">
+                  <div class="card-body" style="font-family: 'S-CoreDream-2ExtraLight';">
+                   
+                    <p class="card-text"><h5>나만의 파우치를 만들고싶나요? 파우치를 직접 만들어 보면서 나만의 파우치와 추억을 가져보세요!</h5></p>
+                    <a href="{% url 'heavydetail'%}" ><img src="{%static 'img/button.png'%}" class="btn" > </a>
+                  </div></div>
+                </div>
+                
+                 
+        
+              </div>
+              </div>
+        
+
+
+
+     
+          
+     
+</body>

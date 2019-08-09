@@ -1,0 +1,390 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+        <style>
+                html { 
+                    background: url('../../static/login.png') no-repeat center center fixed; 
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                  }
+                .menu {
+                    opacity: 0.5;
+                    position: fixed;
+                    height: 50px;
+                    background: #23043A;
+                    width: 100%;
+                    z-index: 9999;
+                    top: 0;
+                    left: 0;
+                  }
+                .menu ul {
+                    list-style: none;
+                    padding: 0;
+                    margin-right: 50;
+                    margin-left: 0;
+                    line-height: 1;
+                    text-align: right;
+                  }
+                .menu > ul {
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    z-index: 500;
+                  }
+                .menu:after, .menu > ul:after {
+                    content: ".";
+                    display: block;
+                    clear: both;
+                    visibility: hidden;
+                    line-height: 0;
+                    height: 0;
+                  }
+                .menu.align-right > ul > li {
+                    float: right;
+                  }
+                .menu.align-center ul {
+                    text-align: center;
+                  }
+                .menu.align-center ul ul {
+                    text-align: left;
+                  }
+                .menu > ul > li {
+                    display: inline-block;
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                  }
+                .menu > ul > #menu-button {
+                    display: none;
+                  }
+                .menu ul li a {
+                    display: block;
+                    font-family: Helvetica, sans-serif;
+                    text-decoration: none;
+                    text-align: left;
+                  }
+                .menu > ul > li > a {
+                    font-size: 14px;
+                    font-weight: bold;
+                    padding: 15px 20px;
+                    color: #fff;
+                    text-transform: uppercase;
+                    -webkit-transition: color 0.25s ease-out;
+                    -moz-transition: color 0.25s ease-out;
+                    -ms-transition: color 0.25s ease-out;
+                    -o-transition: color 0.25s ease-out;
+                    transition: color 0.25s ease-out;
+                  }
+                .menu > ul > li.sub > a {
+                    padding-right: 32px;
+                  }
+                .menu > ul > li:hover > a {
+                    color: #ffffff;
+                  }
+                .menu li.sub::after {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                  }
+                .menu > ul > li.sub::after {
+                    right: 10px;
+                    top: 20px;
+                    border: 5px solid transparent;
+                    border-top-color: #7a8189;
+                  }
+                .menu > ul > li:hover::after {
+                    border-top-color: #ffffff;
+                  }
+                .menu ul ul {
+                    position: absolute;
+                    left: -9999px;
+                    top: 70px;
+                    opacity: 0;
+                    -webkit-transition: opacity .3s ease, top .25s ease;
+                    -moz-transition: opacity .3s ease, top .25s ease;
+                    -ms-transition: opacity .3s ease, top .25s ease;
+                    -o-transition: opacity .3s ease, top .25s ease;
+                    transition: opacity .3s ease, top .25s ease;
+                    z-index: 1000;
+                  }
+                .menu ul ul ul {
+                    top: 37px;
+                    padding-left: 5px;
+                  }
+                .menu ul ul li {
+                    position: relative;
+                  }
+                .menu > ul > li:hover > ul {
+                    left: auto;
+                    top: 44px;
+                    opacity: 1;
+                  }
+                .menu.align-right > ul > li:hover > ul {
+                    left: auto;
+                    right: 0;
+                    opacity: 1;
+                  }
+                .menu ul ul li:hover > ul {
+                    left: 170px;
+                    top: 0;
+                    opacity: 1;
+                  }
+                .menu.align-right ul ul li:hover > ul {
+                    left: auto;
+                    right: 170px;
+                    top: 0;
+                    opacity: 1;
+                    padding-right: 5px;
+                  }
+                .menu ul ul li a {
+                    width: 130px;
+                    border-bottom: 1px solid #eeeeee;
+                    padding: 10px 20px;
+                    font-size: 12px;
+                    color: #9ea2a5;
+                    background: #ffffff;
+                    -webkit-transition: all .35s ease;
+                    -moz-transition: all .35s ease;
+                    -ms-transition: all .35s ease;
+                    -o-transition: all .35s ease;
+                    transition: all .35s ease;
+                  }
+                .menu.align-right ul ul li a {
+                    text-align: right;
+                  }
+                .menu ul ul li:hover > a {
+                    background: #f2f2f2;
+                    color: #8c9195;
+                  }
+                .menu ul ul li:last-child > a, .menu ul ul li.last > a {
+                    border-bottom: 0;
+                  }
+                .menu > ul > li > ul::after {
+                    content: '';
+                    border: 6px solid transparent;
+                    width: 0;
+                    height: 0;
+                    border-bottom-color: #ffffff;
+                    position: absolute;
+                    top: -12px;
+                    left: 30px;
+                  }
+                .menu.align-right > ul > li > ul::after {
+                    left: auto;
+                    right: 30px;
+                  }
+                .menu ul ul li.sub::after {
+                    border: 4px solid transparent;
+                    border-left-color: #9ea2a5;
+                    right: 10px;
+                    top: 12px;
+                    -moz-transition: all .2s ease;
+                    -ms-transition: all .2s ease;
+                    -o-transition: all .2s ease;
+                    transition: all .2s ease;
+                    -webkit-transition: -webkit-transform 0.2s ease, right 0.2s ease;
+                  }
+                .menu.align-right ul ul li.sub::after {
+                    border-left-color: transparent;
+                    border-right-color: #9ea2a5;
+                    right: auto;
+                    left: 10px;
+                  }
+                .menu ul ul li.sub:hover::after {
+                    border-left-color: #ffffff;
+                    right: -5px;
+                    -webkit-transform: rotateY(180deg);
+                    -ms-transform: rotateY(180deg);
+                    -moz-transform: rotateY(180deg);
+                    -o-transform: rotateY(180deg);
+                    transform: rotateY(180deg);
+                  }
+                .menu.align-right ul ul li.sub:hover::after {
+                    border-right-color: #ffffff;
+                    border-left-color: transparent;
+                    left: -5px;
+                    -webkit-transform: rotateY(180deg);
+                    -ms-transform: rotateY(180deg);
+                    -moz-transform: rotateY(180deg);
+                    -o-transform: rotateY(180deg);
+                    transform: rotateY(180deg);
+                  }
+                
+            .search{
+                height: 40px;
+                width: 400px;
+                border: 1px solid #eb65c1;
+                background:none;
+            }
+            
+            input {
+                background: none;
+                color: #eb65c1;
+                font-size: 16px;
+                width: 300px;
+                padding: 10px;
+                border: 0px;
+                outline: none;
+                float: left;
+            }
+            button{
+                width: 50px;
+                height: 100%;
+                border: 0px;
+                background: #eb65c1;
+                outline: none;
+                float: right;
+                color:#ffffff;
+            }
+            .push1{
+                margin-top: 400px;
+                margin-left: 900px;
+                display: table;
+            }
+            .push2{
+                display: table-cell;
+                vertical-align: middle; 
+            }
+        </style>
+    
+    </head>
+    
+    <body>
+
+        {% if mem %}
+            <div class='menu'>
+                    <ul>
+                        <li>
+                            <a href="{% url 'main'%}">첫만남</a>
+                        </li>
+                        <li class='active sub'>
+                            <a href='#'>구독하기</a>
+                            <ul>
+                                <li class='sub'>
+                                    <a href="{% url 'index'%}">넓은여행</a>
+                                </li>
+                                <li class='sub'>
+                                    <a href="{% url 'heavyfirst'%}">깊은여행</a>
+                                </li>
+                            </ul>
+                        </li>
+                            <li class='active sub'>
+                                    <a href='#'>게시판</a>
+                                    <ul>
+                                        <li class='sub'>
+                                            <a href='#'>공지사항</a>
+                                        </li>
+                                        <li class='sub'>
+                                            <a href='#'>Q & A</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                        <li class='active sub'>
+                            <a href='#'>{{ mem.title }}님</a>
+                            <ul>
+                                <li class='sub'>
+                                    <a href="{% url 'main'%}">로그아웃</a>
+                                </li>
+                                <li class='sub'>
+                                    <a href="{% url 'mypage'%}">개인기록</a>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                    </ul>
+                </div>
+    <!--로그인 한 경우에 상단바-->
+    <!--로그인 안했을 때 상단바-->
+        {% else %}
+            <div class='menu'>
+            <ul>
+                <li>
+                    <a href="{% url 'main'%}">첫만남</a>
+                </li>
+                <li class='active sub'>
+                        <a href='#'>구독하기</a>
+                        <ul>
+                            <li class='sub'>
+                                <a href="{% url 'index'%}">넓은여행</a>
+                            </li>
+                            <li class='sub'>
+                                <a href="{% url 'heavyfirst'%}">깊은여행</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class='active sub'>
+                            <a href='#'>게시판</a>
+                            <ul>
+                                <li class='sub'>
+                                    <a href='#'>공지사항</a>
+                                </li>
+                                <li class='sub'>
+                                    <a href='#'>Q & A</a>
+                                </li>
+                            </ul>
+                        </li>
+                <li class='active sub'>
+                    <a href='#'>여행자님</a>
+                    <ul>
+                        <li class='sub'>
+                            <a href="{% url 'about'%}">알아보기</a>
+                        </li>
+                        <li class='sub'>
+                            <a href="{% url 'login'%}">로그인</a>
+                        </li>
+                        <li class='sub'>
+                            <a href="'{% url 'signup' %}">회원가입</a>
+                        </li>
+                    </ul>
+                </li>
+            
+                </ul>
+            </div>
+        {% endif %}
+    <!--로그인 안했을 때 상단바-->
+        <form method="POST" action="{% url 'login'%}">
+            {% csrf_token %}
+            <div class="loginbar" style="margin-top: 350px; margin-left: 500px;">
+                <div class="id">
+                        <br>
+                        <input name="username" type="text" value="" style="background-color: #ffffff;">
+                </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                <div class="pw" >
+                        <br>
+                        <input name="password" type="password" value="" style="background-color : white;">
+                </div>
+                    <br>
+                    <br>
+                    <br>
+                    <button type="submit" style="width:1500px; background:none;"><img src ="{% static 'submitbtn.png'%}" class="btn"></button>
+            </div>
+            
+        </form>
+        
+        {% if error %}
+            {{ error }}
+            <br>
+            <br>
+        {% endif %}
+</body>
+</html>
+    

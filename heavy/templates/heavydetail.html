@@ -1,0 +1,266 @@
+{% load static %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Document</title>
+
+       
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/design.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/design.css' %}">
+    </head>
+    <body>
+      
+      <!--nav bar-->
+      <span><img src="{% static 'img/logo.gif'%}" style="width: 50px; text-align: left;"></span>
+      
+ 
+
+      <body>
+        {% if mem %}
+            <div class='menu'>
+                    <ul>
+                        <li>
+                            <a href="{% url 'main'%}">첫만남</a>
+                        </li>
+                        <li class='active sub'>
+                            <a href='#'>구독하기</a>
+                            <ul>
+                                <li class='sub'>
+                                    <a href="{% url 'index'%}">넓은여행</a>
+                                </li>
+                                <li class='sub'>
+                                    <a href="{% url 'heavyfirst'%}">깊은여행</a>
+                                </li>
+                            </ul>
+                        </li>
+                            <li class='active sub'>
+                                    <a href='#'>게시판</a>
+                                    <ul>
+                                        <li class='sub'>
+                                            <a href='#'>공지사항</a>
+                                        </li>
+                                        <li class='sub'>
+                                            <a href='#'>Q & A</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                        <li class='active sub'>
+                            <a href='#'>{{ mem.title }}님</a>
+                            <ul>
+                                <li class='sub'>
+                                    <a href="{% url 'main'%}">로그아웃</a>
+                                </li>
+                                <li class='sub'>
+                                    <a href="{% url 'mypage'%}">개인기록</a>
+                                </li>
+                            </ul>
+                        </li>
+                       
+                    </ul>
+                </div>
+    <!--로그인 한 경우에 상단바-->
+    <!--로그인 안했을 때 상단바-->
+        {% else %}
+            <div class='menu'>
+            <ul>
+                <li>
+                    <a href="{% url 'main'%}">첫만남</a>
+                </li>
+                <li class='active sub'>
+                        <a href='#'>구독하기</a>
+                        <ul>
+                            <li class='sub'>
+                                <a href="{% url 'index'%}">넓은여행</a>
+                            </li>
+                            <li class='sub'>
+                                <a href="{% url 'heavyfirst'%}">깊은여행</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class='active sub'>
+                            <a href='#'>게시판</a>
+                            <ul>
+                                <li class='sub'>
+                                    <a href='#'>공지사항</a>
+                                </li>
+                                <li class='sub'>
+                                    <a href='#'>Q & A</a>
+                                </li>
+                            </ul>
+                        </li>
+                <li class='active sub'>
+                    <a href='#'>여행자님</a>
+                    <ul>
+                        <li class='sub'>
+                            <a href="{% url 'about'%}">알아보기</a>
+                        </li>
+                        <li class='sub'>
+                            <a href="{% url 'login'%}">로그인</a>
+                        </li>
+                        <li class='sub'>
+                            <a href="{% url 'signup' %}">회원가입</a>
+                        </li>
+                    </ul>
+                </li>
+            
+                </ul>
+            </div>
+        {% endif %}
+<br><br><br> 
+
+
+      
+<br><br><br>
+
+
+
+
+<!--dropbar-->
+<div class="left">
+<div class="card-position3"><img class="card" src="{%static 'img/가죽공예.png'%}" alt="..." class="rounded" style=" width:30rem; height:35rem; "></div>
+</div>
+
+<div class="container" style="width:60%; margin-left:40%; height:50%; ">
+<h2 style="font-family: yg-jalnan; margin-left:20%;  margin-bottom:5%; color:#eb65c1;"  >가죽공예</h2>
+<br>
+
+
+<h3 style="font-family: yg-jalnan;"  >기간 </h3>
+
+
+<div class="row2" style="width:50rem;  "> 
+<div class="dropbar-position"><select class="custom-select custom-select-lg mb-3">
+      <option selected>기간을 선택하세요</option>
+      <option value="1">8월 첫째주</option>
+      <option value="2">8월 둘째주</option>
+      <option value="3">8월 셋째주</option>
+      <option value="3">8월 넷째주</option>
+  </select>
+</div></div>
+
+
+
+  <h3 style="font-family: yg-jalnan;"  >디자인 선택</h3>
+  
+  
+  <div class="row2" style="width:50rem;  "> 
+  <div class="dropbar-position"><select class="custom-select custom-select-lg mb-3">
+        <option selected>디자인을 선택하세요</option>
+        <option value="1">카드 지갑</option>
+        <option value="2">장지갑</option>
+        <option value="3">반지갑</option>
+    </select>
+  </div></div> 
+
+
+
+
+  
+    <h3 style="font-family: yg-jalnan;"  >지역 선택</h3>
+    
+    
+    <div class="row2" style="width:50rem;  "> 
+    <div class="dropbar-position"><select class="custom-select custom-select-lg mb-3">
+          <option selected>지역을 선택하세요</option>
+          <option value="1">서울- 연남동 젠티호프16</option>
+          <option value="2">서울- 잠실 언블런</option>
+          <option value="3">서울 - 사당동 린도샵</option>
+          <option value="3">부산- 서면</option>
+          <option value="3">대구 - 반월당 </option>
+      </select>
+    </div>
+    
+    
+    </div>
+    <br><br><br>
+
+<!--결재 구매 버튼 -->
+
+<div class="btn btn-secondary btn-lg active"  a href="#" role="button" aria-pressed="true" style="margin-left:60%; 
+font-family: yg-jalnan; color:white; background-color:#eb65c1; ">찜하기</a></div>
+
+<div class="btn btn-secondary btn-lg active"  a href="#"  role="button" aria-pressed="true"
+style="font-family: yg-jalnan; background-color:#232c46;">바로구매하기</a></div>
+<br><br><br>
+</div>
+
+</div>
+
+<!-- <div class="dropdown" style="margin-bottom:400%; margin-left : 70%; width:40rem;">
+<button class="btn btn-default dropdown-toggle" id="mystatus" value="title" type="button" data-toggle="dropdown" aria-expanded="true">
+제목
+<span class="caret"></span>
+</button>
+<ul id="mytype" class="dropdown-menu" role="menu" aria-labelledby="searchType">
+<li role="presentation">
+<a role="menuitem" tabindex="-1" href="#" value="a">A</a>
+</li>
+<li role="presentation">
+<a role="menuitem" tabindex="-1" href="#" value="b">B</a>
+</li>
+<li role="presentation">
+<a role="menuitem" tabindex="-1" href="#" value="c">C</a>
+</li>
+</ul>
+</div> -->
+
+
+  <!--이건 자바스트립트로 구현 : 백역할 !-->
+    <!-- $('#mytype li > a').on('click', function() {
+      // 버튼에 선택된 항목 텍스트 넣기 
+      $('#mystatus').text($(this).text());
+          
+      // 선택된 항목 값(value) 얻기
+      alert($(this).attr('value'));
+  }); -->
+   
+
+  <br><br><br><br><br><br>
+  <img src="{% static 'img/ex.png'%}" style="width:50%; margin-left:25%;" >
+  <br><br><br><br>
+    </body>
+    </html>
+     
+
+  <!-- <img src="{%static 'background.png'%}" height=500 alt=""> -->
+  
+      
+    
+
+
+
+
+  
+  
+  
+
+      
+
+    
+  
+
+
+
+
+   
+              
+
+
+
+
+
+
+
+
+
+
+
+              

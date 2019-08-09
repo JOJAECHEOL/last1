@@ -1,0 +1,8 @@
+
+{% if mem %}
+    <p> ID :{{mem.title}}</p>
+    <p> 비밀번호 : {{mem.pw}} </p>
+    <p> 고른 항목 : {{mem.choose}} </p>
+{% endif %}
+
+<a href = "{% url 'logout'%}">로그아웃</a>

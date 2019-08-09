@@ -1,0 +1,18 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+
+.jumbotron{
+    width: 100%;
+    vertical-align: middle;
+    background: url(background.png) no-repeat center center fixed;
+}
+.search{
+    height: 40px;
+    width: 400px;
+    border: 1px solid #eb65c1;
+    background:none;
+}
+
+body {
+    padding-top: 3.5rem;
+  }
+  

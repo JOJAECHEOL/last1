@@ -1,0 +1,18 @@
+<h1> 가벼운 페이지 선택항목 </h1>
+<form action = "{% url 'buy2'%}">
+    <p>항목</p>
+    <textarea cols="20" rows="2" name="item"></textarea>
+    <br>
+    <p>가격</p>
+    <input type="number" name="pricelow">원부터
+    <p>~</p>
+    <input type="number" name="pricehigh">원까지
+    <br>
+    <p>기간</p>
+    <input type="date" name="startdate">일부터
+    <p>~</p>
+    <input type="date" name="enddate">일까지
+    <br>
+    {% csrf_token %}
+    <input type="submit" value="제출"/>
+</form>

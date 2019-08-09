@@ -1,0 +1,26 @@
+@font-face { 
+  font-family: 'yg-jalnan'; 
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); 
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+/* light_main.html */
+  .card-deck {
+    font-family: 'yg-jalnan';
+  }
+
+/* one_selection.html */
+  .box1 {
+    width: 930px;
+    height: 200px;
+    background-color: #eeeadc;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #232c46;
+    margin-bottom: 16px;
+    padding: 17px;
+    border-radius: 10px;
+  }
+
+/* mypage */

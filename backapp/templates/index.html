@@ -1,0 +1,26 @@
+<h1>상품</h1>
+
+<form action = "{% url 'choose'%}">
+    <textarea cols="20" rows="2" name="goodsitem"></textarea>
+    <br>
+    {% csrf_token %}
+    <input type="submit" value="제출"/>
+</form>
+
+{% if mem %}
+    <p> ID :{{mem.title}}</p>
+    <a href = "{% url 'good'%}">메인페이지 가기</a><br>
+    <a href = "{% url 'good'%}">로그아웃 하러가기</a><br>
+{% else %}
+    <a href="{% url 'home'%}">로그인 하러가기</a>
+{% endif %}
+
+{% for goods in goods.all %}
+    <div class="container">
+        <h1>{{ goods.goodsname }}</h1>
+        <p>{{ goods.item }}</p>
+        <p>{{ goods.price }}</p>
+        <p>{{ goods.date }}</p>
+    </div>
+{% endfor %}
+<a href="{% url 'buy1'%}">가벼운 리스트 페이지</a><br>
