@@ -1,1 +1,1 @@
-web: gunicorn last.wsgi --log-file -
+web: gunicorn hackerton.wsgi --log-file -
